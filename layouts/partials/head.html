@@ -1,0 +1,62 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {{/* NOTE: the Site's title, and if there is a page title, that is set too */}}
+    <title>{{ block "title" . }}{{ with .Params.Title }}{{ . }} | {{ end }}{{ .Site.Title }}{{ end }}</title>
+    {{ hugo.Generator }}
+    {{/* NOTE: For Production make sure you add `HUGO_ENV="production"` before your build command */}}
+    {{ if eq (getenv "HUGO_ENV") "production" | or (eq .Site.Params.env "production") }}
+    <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+    {{ else }}
+    <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    {{ end }}
+    {{ block "favicon" . }}
+    {{ partialCached "site-favicon.html" . }}
+    {{ end }}
+    <meta name="description"
+          content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ else }}{{ .Site.Params.description }}{{end }}{{ end }} ">
+    <link rel="canonical" href="{{ .Permalink }}"/>
+    {{ template "_internal/opengraph.html" . }}
+    {{ template "_internal/twitter_cards.html" . }}
+    <link rel="stylesheet" href="/css/bootstrap-4.5.2/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/bootstrap-4.5.2/bootstrap-grid.min.css"/>
+    <link rel="stylesheet" href="/css/bootstrap-4.5.2/bootstrap-reboot.min.css"/>
+    <link rel="stylesheet" href="/css/sticky-footer.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <script>
+        function showLevel(id) {
+            $('.btn').removeClass('btn-primary');
+            $('.btn').addClass('btn-outline-secondary');
+            $("#btn-" + id).removeClass('btn-outline-secondary');
+            $("#btn-" + id).addClass('btn-primary');
+            $('.level').addClass('d-none');
+            $("#" + id).removeClass('d-none');
+        }
+    </script>
+    <link rel="stylesheet" href="/css/dashboard.css"/>
+    {{ if .OutputFormats.Get "RSS" }}
+    {{ with .OutputFormats.Get "RSS" }}
+    <link href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}"/>
+    <link href="{{ .RelPermalink }}" rel="feed" type="application/rss+xml" title="{{ $.Site.Title }}"/>
+    {{ end }}
+    {{ end }}
+    {{ if not (in (string .Site.BaseURL) "localhost") }}
+    {{ template "_internal/google_analytics_async.html" . }}
+    {{ end }}
+</head>

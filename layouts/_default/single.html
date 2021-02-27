@@ -1,0 +1,30 @@
+{{ define "main" }}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1>{{ .Title }}</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <div class="btn-group mr-2">
+            <button id="btn-main" type="button" class="btn btn-m btn-primary" onclick="showLevel('main');"><i
+                    class="fa fa-home"></i></button>
+            {{ range seq .Params.levels }}
+            <button id="btn-level{{ . }}" type="button" class="btn btn-m btn-outline-secondary"
+                    onclick="showLevel('level{{ . }}');">{{ . }}
+            </button>
+            {{ end }}
+        </div>
+    </div>
+</div>
+{{ $datafile := .Params.datafilepartial }}
+{{ $site_data := .Site.Data}}
+{{ range seq .Params.levels }}
+<div id="level{{ . }}" class="level{{ . }} level d-none">
+    {{ $parent_index := . }}
+    {{ $data_partial := (partial (printf "%s" $datafile) (dict "parent_index" $parent_index "site_data" $site_data)) }}
+    {{ $data_partial }}
+</div>
+{{ end }}
+
+<div id="main" class="level">
+    {{ .Content }}
+</div>
+
+{{ end }}

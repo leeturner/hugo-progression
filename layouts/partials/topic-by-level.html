@@ -1,0 +1,22 @@
+<div id="{{ .context.name }}-level{{ .parent_index }}" class="{{ .context.name }}">
+    {{ $index := .parent_index }}
+    <h3>{{ .context.title }}</h3>
+    <ul>
+        {{ range .context.content }}
+        {{ if eq .level $index }}
+        {{ range .criteria }}
+        <li>{{ . | markdownify }}</li>
+        {{ end }}
+        {{ range .exampleCriteria }}
+        <li>{{ .criteria | markdownify }}
+            <ul>
+                {{ range .examples }}
+                <li>{{ . | markdownify }}</li>
+                {{ end }}
+            </ul>
+        </li>
+        {{ end }}
+        {{ end }}
+        {{ end }}
+    </ul>
+</div>
