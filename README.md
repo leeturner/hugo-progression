@@ -16,7 +16,9 @@ When done right, a tool like this helps employees to grow and hone their strengt
 
 ## How To Build Your Progression Framework With Hugo Progression
 
-### Installation
+Everything discussed here can be found in the `exampleSite` folder within this repository.
+
+### 1) Installation
 
 Navigate to your themes folder in your Hugo site and use the following commands:
 
@@ -32,3 +34,75 @@ git submodule add https://github.com/leeturner/hugo-progression.git themes/hugo-
 ```
 
 For more information read the [official setup guide](https://gohugo.io/overview/installing/) of Hugo.
+
+### 2) Create Your Framework Data Files
+
+Due to some restrictions in what data `hugo` allows in the markdown front matter along with how you reference data files in `hugo`, an individual framework needs to consist of 3 things:
+
+* a markdown page that contains the homepage of the framework
+* a data `yml` file containing the content for each level of the framework
+* a hugo html partial that links the above together.
+
+In this step we will create the `hugo` data file that contains the data for the different areas and levels for a framework.  These data files are `yml` and follow the same format as the Monzo data files.  A partial example of one of these data files is included below:
+
+```yaml
+topics:
+  - name: "communication"
+    title: "💬 Communication"
+    content:
+      - level: 1
+        criteria:
+          - "Provides regular status updates to their mentor/buddy"
+          - "Points out syntactical improvements in code reviews"
+          - "Writes PR descriptions that provide basic context for the change"
+          - "Seeks guidance from other engineers, rather than answers"
+      - level: 2
+        criteria:
+          - "Proactively communicates to their team what they are working on, why, how it's going and what help they need"
+          - "Accepts feedback graciously"
+          - "Gives feedback to peers when asked"
+        exampleCriteria:
+          - criteria: "Provides helpful and actionable feedback in code reviews in an empathetic manner"
+            examples:
+              - "Take a look at the levelling up your code reviews talk for some ideas"
+          - criteria: "Writes PR descriptions that provide context and provide rationale for significant decisions"
+            examples:
+              - "I decided to X instead of Y here, I also considered Z but for these reasons I went with X"
+  - name: "impact"
+    title: "💥 Impact"
+    content:
+      - level: 1
+        criteria:
+          - "Delivers assigned tasks, working with a more senior team member, and able to take PR feedback to improve their work"
+      - level: 2
+        criteria:
+          - "Delivers assigned tasks that meet expected criteria"
+          - "Works for the team, focuses on tasks that contribute to team goals"
+          - "Tries to unblock themselves first before seeking help"
+          - "Manages their own time effectively, prioritises their workload well, on time for meetings, aware when blocking others and unblocks"
+          - "Helps the team, does what needs doing"
+          - "Breaks down small/medium problems into iterative steps"
+```
+
+These framework data files need to be placed in the `data` folder for your `hugo` site.  These files can be structured into sub-folders if you wish:
+
+```
+data
+  frameworks
+    engineering
+      backend.yml
+      data.yml
+      mobile.yml
+      qualityanalyst.yml
+      web.yml
+    operations
+      opsindividualcontributor.yml
+      opsleadership.yml
+    generic.yml
+    marketing.yml
+    people.yml
+    product.yml
+```
+
+See the examples in the `exampleSite` folder if you want to see more complete examples.
+
