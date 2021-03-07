@@ -16,7 +16,7 @@ When done right, a tool like this helps employees to grow and hone their strengt
 
 ## How To Build Your Progression Framework With Hugo Progression
 
-Everything discussed here can be found in the `exampleSite` folder within this repository.
+Everything discussed here can be found in the `[exampleSite](https://github.com/leeturner/hugo-progression/tree/main/exampleSite)` folder within this repository.
 
 ### 1) Installation
 
