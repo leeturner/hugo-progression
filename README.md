@@ -44,11 +44,11 @@ Due to some restrictions in what data `hugo` allows in the markdown front matter
 * a hugo html partial that links the above together.
 
 ```
-+-----------+       +------------+       +------------+
-| Markdown  |       |    html    |       |  data yml  |
-|   file    |------>|   partial  |------>|    file    |
-|           |       |            |       |            |
-+-----------+       +------------+       +------------+
++-----------+       +------------+       +------------+          +-------------+
+| Markdown  |       |    html    |       |  data yml  |          | Individual  |
+|   file    |------>|   partial  |------>|    file    |     =    | Progression |
+|           |       |            |       |            |          |  Framework  |
++-----------+       +------------+       +------------+          +-------------+
 ```
 
 In this step we will create the `hugo` data file that contains the data for the different areas and levels for an individual framework.  These data files are `yml` and follow the same format as the Monzo data files.  A partial example of one of these data files is included below:
