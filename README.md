@@ -188,3 +188,5 @@ datafilepartial: engineering/backend-partial.html
 ---
 ```
 
+See the [examples in the `exampleSite`](https://github.com/leeturner/hugo-progression/tree/main/exampleSite/layouts/partials) folder if you want to see more complete examples.
+
