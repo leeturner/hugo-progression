@@ -46,7 +46,7 @@ Due to some restrictions in what data `hugo` allows in the markdown front matter
 ```
 +-----------+       +------------+       +------------+
 | Markdown  |       |    html    |       |  data yml  |
-|   file    |-------|   partial  |-------|    file    |
+|   file    |------>|   partial  |------>|    file    |
 |           |       |            |       |            |
 +-----------+       +------------+       +------------+
 ```
