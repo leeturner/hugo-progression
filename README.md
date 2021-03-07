@@ -43,6 +43,14 @@ Due to some restrictions in what data `hugo` allows in the markdown front matter
 * a data `yml` file containing the content for each level of the framework
 * a hugo html partial that links the above together.
 
+```
++-----------+       +------------+       +------------+
+| Markdown  |       |    html    |       |  data yml  |
+|   file    |-------|   partial  |-------|    file    |
+|           |       |            |       |            |
++-----------+       +------------+       +------------+
+```
+
 In this step we will create the `hugo` data file that contains the data for the different areas and levels for an individual framework.  These data files are `yml` and follow the same format as the Monzo data files.  A partial example of one of these data files is included below:
 
 ```yaml
@@ -123,6 +131,8 @@ datafilepartial: engineering/backend-partial.html
 ---
 ```
 
-The two fields that are specific to `hugo-progression` are `levels` and `datafilepartial`.  The `levels` field specifies how many levels there are in this individual framework which must correspond to the number of levels in your framework `yml` data file.  This will also determine how many levels are created in the menu when the site is generate:
+The two fields that are specific to `hugo-progression` are `levels` and `datafilepartial`.  The `levels` field specifies how many levels there are in this individual framework which must correspond to the number of levels in your framework `yml` data file.  This will also determine how many levels are created in the menu when the site is generated:
 
 ![Hugo Progression Levels](https://github.com/leeturner/hugo-progression/blob/main/images/hugo-progression-levels.png "Hugo Progression Levels")
+
+The `datafilepartial` field links the markdown file to the 
