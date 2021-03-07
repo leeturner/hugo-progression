@@ -3,6 +3,8 @@ Hugo Progression is a [Hugo](https://gohugo.io/) template that can render progre
 
 ![Hugo Progression Screenshot](https://github.com/leeturner/hugo-progression/blob/main/images/hugo-progression-screenshot.png "Hugo Progression Screenshot")
 
+A full demo of this template (and the site contained within the `exampleSite` folder) can be found at the [Hugo Progression Demo Site](https://hugo-progression.com/)
+
 ## What Are Progression Frameworks ?
 
 A progression framework (or ‘competency matrix’, ‘career ladder’, ‘career pathway’) is a tool to help people within an organisation understand where they currently are and how to progress and grow in their work.  It also helps an organisation map people's competencies (their skills and knowledge) to compensation (how they're rewarded for them financially).
