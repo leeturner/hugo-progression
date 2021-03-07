@@ -190,7 +190,7 @@ datafilepartial: engineering/backend-partial.html
 
 See the [examples in the `exampleSite`](https://github.com/leeturner/hugo-progression/tree/main/exampleSite/layouts/partials) folder if you want to see more complete examples.
 
-### Nearly finished
+### 3) Nearly finished
 
 In order to see your site in action, run Hugo's built-in local server.
 
@@ -200,7 +200,7 @@ Now enter [`localhost:1313`](http://localhost:1313/) in the address bar of your 
 
 ## Production
 
-To run in production (e.g. to have Google Analytics show up), run `HUGO_ENV=production` before your build command. For example:
+To run in production, run `HUGO_ENV=production` before your build command. For example:
 
 ```
 HUGO_ENV=production hugo
@@ -217,4 +217,4 @@ hugo
 
 If you find a bug or have an idea for a feature, feel free to use the [issue tracker](https://github.com/leeturner/hugo-progression/issues) to let me know.
 
-
+If you want to implement new features on the Hugo Progression template, please see the [TODO](https://github.com/leeturner/hugo-progression/blob/main/TODO.md) file for ideas of where to start.
