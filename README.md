@@ -114,7 +114,7 @@ data
     product.yml
 ```
 
-See the examples in the `exampleSite` folder if you want to see more complete examples.
+See the [examples in the `exampleSite`](https://github.com/leeturner/hugo-progression/tree/main/exampleSite/data/frameworks) folder if you want to see more complete examples.
 
 #### 2.2) Create The Markdown Page With Front Matter & Content For The Framework Homepage
 
