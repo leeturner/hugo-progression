@@ -118,7 +118,7 @@ See the [examples in the `exampleSite`](https://github.com/leeturner/hugo-progre
 
 #### 2.2) Create The Markdown Page With Front Matter & Content For The Framework Homepage
 
-For any of the frameworks to appear in your `hugo` site you will need a markdown file that contains the correct front matter and the content for the homepage of the individual framework.  The front matter can contain all the usual `hugo` fields along with a couple of special fields specific to `hugo-progression`.  See the example below:
+For any of the frameworks to appear in your `hugo` site you will need a markdown file that contains the correct front matter and the content for the homepage of the individual framework. As with any `hugo` site, these markdown files live in the `content` folder.  The front matter can contain all the usual `hugo` fields along with a couple of special fields specific to `hugo-progression`.  See the example below:
 
 ```markdown
 ---
@@ -138,6 +138,8 @@ The two fields that are specific to `hugo-progression` are `levels` and `datafil
 ![Hugo Progression Levels](https://github.com/leeturner/hugo-progression/blob/main/images/hugo-progression-levels.png "Hugo Progression Levels")
 
 The `datafilepartial` field links the markdown file to the specific html partial for this individual framework.  We will create this html partial in the next step
+
+See the [examples in the `exampleSite`](https://github.com/leeturner/hugo-progression/tree/main/exampleSite/content) folder if you want to see more complete examples.
 
 #### 2.3) Create The HTML Partial 
 
