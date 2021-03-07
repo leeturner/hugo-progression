@@ -116,7 +116,7 @@ data
 
 See the examples in the `exampleSite` folder if you want to see more complete examples.
 
-#### 2.2) Create The Markdown Page With Front Matter & Content For The Homepage
+#### 2.2) Create The Markdown Page With Front Matter & Content For The Framework Homepage
 
 For any of the frameworks to appear in your `hugo` site you will need a markdown file that contains the correct front matter and the content for the homepage of the individual framework.  The front matter can contain all the usual `hugo` fields along with a couple of special fields specific to `hugo-progression`.  See the example below:
 
@@ -141,9 +141,48 @@ The `datafilepartial` field links the markdown file to the specific html partial
 
 #### 2.3) Create The HTML Partial 
 
+Because `hugo` won't allow us to specify a data file in the front matter of a markdown file we have to create a simple `hugo` html partial file for each framework data file to get around this.  If you want to understand more about this restriction in `hugo` take a look at this article by [Michele Titolo](https://michele.io/) which helped me understand how to work around it - https://michele.io/content-data-hugo/
+
+I have tried to take out all the common elements make sure the html partial files are as small as possible, and the below example is as small as I could get it. 
+
 ```gotemplate
 {{ $this_parent_index := .parent_index}}
 {{ range .site_data.frameworks.engineering.backend.topics }}
 {{ partial "topic-by-level.html" (dict "context" . "parent_index" $this_parent_index) }}
 {{ end }}
 ```
+
+As you can see, the one line that is specific to the data file is the `range` line:
+
+```gotemplate
+{{ range .site_data.frameworks.engineering.backend.topics }}
+```
+
+This line will change for each of the html partial files but all the rest will stay the same.  The path to the `topics` effectively matches the folder structure you used when you created your data files. To keep things consistent I store my html partials in the same directory structure as my data files:
+
+```
+layouts
+  partials
+    engineering
+      backend-partial.html
+      data-partial.html
+      mobile-partial.html
+      qualityanalyst-partial.html
+      web-partial.html
+    operations
+      opsindividualcontributor-partial.html
+      opsleadership-partial.html
+    generic-partial.html
+    marketing-partial.html
+    people-partial.html
+    product-partial.html
+```
+
+Once you have created your html partial file that references the framework data file, make sure you are correctly referencing the html partial in your markdown file as in the example above:
+
+```markdown
+---
+datafilepartial: engineering/backend-partial.html
+---
+```
+

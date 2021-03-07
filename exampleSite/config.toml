@@ -1,0 +1,19 @@
+baseURL = "http://example.org/"
+languageCode = "en-us"
+title = "Dummy Co Ltd Progression Framework"
+theme = "progression"
+
+#googleAnalytics = "UI-XXXXX-XX"
+
+[markup.goldmark.renderer]
+    unsafe= true
+
+[menu]
+[[menu.main]]
+    identifier = "engineering"
+    name       = "Engineering"
+    url        = "/engineering"
+[[menu.main]]
+    identifier = "operations"
+    name       = "Operations"
+    url        = "/operations"

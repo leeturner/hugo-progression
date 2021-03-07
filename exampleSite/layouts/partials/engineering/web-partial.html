@@ -1,0 +1,4 @@
+{{ $this_parent_index := .parent_index}}
+{{ range .site_data.frameworks.engineering.web.topics }}
+{{ partial "topic-by-level.html" (dict "context" . "parent_index" $this_parent_index) }}
+{{ end }}
