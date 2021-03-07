@@ -35,7 +35,7 @@ git submodule add https://github.com/leeturner/hugo-progression.git themes/hugo-
 
 For more information read the [official setup guide](https://gohugo.io/overview/installing/) of Hugo.
 
-### 2) Create Your Framework Data Files
+### 2) Setup Your Framework Data & Content
 
 Due to some restrictions in what data `hugo` allows in the markdown front matter along with how you reference data files in `hugo`, an individual framework needs to consist of 3 things:
 
@@ -50,6 +50,8 @@ Due to some restrictions in what data `hugo` allows in the markdown front matter
 |           |       |            |       |            |          |  Framework  |
 +-----------+       +------------+       +------------+          +-------------+
 ```
+
+#### Create Your Framework Data Files
 
 In this step we will create the `hugo` data file that contains the data for the different areas and levels for an individual framework.  These data files are `yml` and follow the same format as the Monzo data files.  A partial example of one of these data files is included below:
 
@@ -114,7 +116,7 @@ data
 
 See the examples in the `exampleSite` folder if you want to see more complete examples.
 
-### 3) Create The Markdown Page With Front Matter & Content For The Homepage
+#### Create The Markdown Page With Front Matter & Content For The Homepage
 
 For any of the frameworks to appear in your `hugo` site you will need a markdown file that contains the correct front matter and the content for the homepage of the individual framework.  The front matter can contain all the usual `hugo` fields along with a couple of special fields specific to `hugo-progression`.  See the example below:
 
