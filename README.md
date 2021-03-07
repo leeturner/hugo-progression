@@ -51,7 +51,7 @@ Due to some restrictions in what data `hugo` allows in the markdown front matter
 +-----------+       +------------+       +------------+          +-------------+
 ```
 
-#### Create Your Framework Data Files
+#### 2.1) Create Your Framework Data Files
 
 In this step we will create the `hugo` data file that contains the data for the different areas and levels for an individual framework.  These data files are `yml` and follow the same format as the Monzo data files.  A partial example of one of these data files is included below:
 
@@ -116,7 +116,7 @@ data
 
 See the examples in the `exampleSite` folder if you want to see more complete examples.
 
-#### Create The Markdown Page With Front Matter & Content For The Homepage
+#### 2.2) Create The Markdown Page With Front Matter & Content For The Homepage
 
 For any of the frameworks to appear in your `hugo` site you will need a markdown file that contains the correct front matter and the content for the homepage of the individual framework.  The front matter can contain all the usual `hugo` fields along with a couple of special fields specific to `hugo-progression`.  See the example below:
 
@@ -137,4 +137,13 @@ The two fields that are specific to `hugo-progression` are `levels` and `datafil
 
 ![Hugo Progression Levels](https://github.com/leeturner/hugo-progression/blob/main/images/hugo-progression-levels.png "Hugo Progression Levels")
 
-The `datafilepartial` field links the markdown file to the 
+The `datafilepartial` field links the markdown file to the specific html partial for this individual framework.  We will create this html partial in the next step
+
+#### 2.3) Create The HTML Partial 
+
+```gotemplate
+{{ $this_parent_index := .parent_index}}
+{{ range .site_data.frameworks.engineering.backend.topics }}
+{{ partial "topic-by-level.html" (dict "context" . "parent_index" $this_parent_index) }}
+{{ end }}
+```
