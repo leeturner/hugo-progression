@@ -1,11 +1,13 @@
 # Hugo Progression
+
+[![Licence](https://img.shields.io/github/license/leeturner/hugo-progression)](LICENSE)
 Hugo Progression is a [Hugo](https://gohugo.io/) template that can render progression frameworks using the same data format as the [Monzo progression framework](https://github.com/monzo/progression-framework)
 
-![Hugo Progression Screenshot](https://github.com/leeturner/hugo-progression/blob/main/images/hugo-progression-screenshot.png "Hugo Progression Screenshot")
+![Hugo Progression Screenshot](images/hugo-progression-screenshot.png "Hugo Progression Screenshot")
 
 A full demo of this template (and the site contained within the `exampleSite` folder) can be found at the [Hugo Progression Demo Site](https://leeturner.github.io/hugo-progression-demo/)
 
-## What Are Progression Frameworks ?
+## What are progression frameworks?
 
 A progression framework (or ‘competency matrix’, ‘career ladder’, ‘career pathway’) is a tool to help people within an organisation understand where they currently are and how to progress and grow in their work.  It also helps an organisation map people's competencies (their skills and knowledge) to compensation (how they're rewarded for them financially).
 
@@ -16,28 +18,27 @@ When done right, a tool like this helps employees to grow and hone their strengt
 * https://github.com/monzo/progression-framework
 * https://www.progression.fyi/
 
-## How To Build Your Progression Framework With Hugo Progression
+## Building your progression framework
 
 Everything discussed here can be found in the [`exampleSite`](https://github.com/leeturner/hugo-progression/tree/main/exampleSite) folder within this repository.
 
-### 1) Installation
+### Install the theme
 
-Navigate to your themes folder in your Hugo site and use the following commands:
-
-```
-cd themes/
-git clone https://github.com/leeturner/hugo-progression.git
-```
-
-If you don't want to clone the theme you can add it as a git submodule. Inside the folder of your Hugo site run:
+Add the theme to your Hugo site as a git submodule:
 
 ```
 git submodule add https://github.com/leeturner/hugo-progression.git themes/hugo-progression
 ```
 
-For more information read the [official setup guide](https://gohugo.io/overview/installing/) of Hugo.
+Then set it as the theme in your site's configuration:
 
-### 2) Setup Your Framework Data & Content
+```toml
+theme = "hugo-progression"
+```
+
+See [Hugo's quick start](https://gohugo.io/getting-started/quick-start/) if you're new to Hugo.
+
+### Set up your framework's data and content
 
 Due to some restrictions in what data `hugo` allows in the markdown front matter along with how you reference data files in `hugo`, an individual framework needs to consist of 3 things:
 
@@ -53,7 +54,7 @@ Due to some restrictions in what data `hugo` allows in the markdown front matter
 +-----------+       +------------+       +------------+          +-------------+
 ```
 
-#### 2.1) Create Your Framework Data Files
+#### Create the framework data files
 
 In this step we will create the `hugo` data file that contains the data for the different areas and levels for an individual framework.  These data files are `yml` and follow the same format as the Monzo data files.  A partial example of one of these data files is included below:
 
@@ -118,7 +119,7 @@ data
 
 See the [examples in the `exampleSite`](https://github.com/leeturner/hugo-progression/tree/main/exampleSite/data/frameworks) folder if you want to see more complete examples.
 
-#### 2.2) Create The Markdown Page With Front Matter & Content For The Framework Homepage
+#### Create the framework's home page
 
 For any of the frameworks to appear in your `hugo` site you will need a markdown file that contains the correct front matter and the content for the homepage of the individual framework. As with any `hugo` site, these markdown files live in the `content` folder.  The front matter can contain all the usual `hugo` fields along with a couple of special fields specific to `hugo-progression`.  See the example below:
 
@@ -137,13 +138,13 @@ datafilepartial: engineering/backend-partial.html
 
 The two fields that are specific to `hugo-progression` are `levels` and `datafilepartial`.  The `levels` field specifies how many levels there are in this individual framework which must correspond to the number of levels in your framework `yml` data file.  This will also determine how many levels are created in the menu when the site is generated:
 
-![Hugo Progression Levels](https://github.com/leeturner/hugo-progression/blob/main/images/hugo-progression-levels.png "Hugo Progression Levels")
+![Hugo Progression Levels](images/hugo-progression-levels.png "Hugo Progression Levels")
 
 The `datafilepartial` field links the markdown file to the specific html partial for this individual framework.  We will create this html partial in the next step
 
 See the [examples in the `exampleSite`](https://github.com/leeturner/hugo-progression/tree/main/exampleSite/content) folder if you want to see more complete examples.
 
-#### 2.3) Create The HTML Partial 
+#### Create the HTML partial
 
 Because `hugo` won't allow us to specify a data file in the front matter of a markdown file we have to create a simple `hugo` html partial file for each framework data file to get around this.  If you want to understand more about this restriction in `hugo` take a look at this article by [Michele Titolo](https://michele.io/) which helped me understand how to work around it - https://michele.io/content-data-hugo/
 
@@ -192,27 +193,22 @@ datafilepartial: engineering/backend-partial.html
 
 See the [examples in the `exampleSite`](https://github.com/leeturner/hugo-progression/tree/main/exampleSite/layouts/partials) folder if you want to see more complete examples.
 
-### 3) Nearly finished
+### Try it out
 
-In order to see your site in action, run Hugo's built-in local server.
+Run Hugo's local server:
 
-`$ hugo server`
+```
+hugo server
+```
 
-Now enter [`localhost:1313`](http://localhost:1313/) in the address bar of your browser.
+Then open [`localhost:1313`](http://localhost:1313/) in your browser.
 
 ## Production
 
-To run in production, run `HUGO_ENV=production` before your build command. For example:
+Build the site for production with:
 
 ```
-HUGO_ENV=production hugo
-```
-
-Note: The above command will not work on Windows. If you are running a Windows OS, use the below command:
-
-```
-set HUGO_ENV=production
-hugo
+hugo --environment production
 ```
 
 ## Contributing
@@ -220,3 +216,7 @@ hugo
 If you find a bug or have an idea for a feature, feel free to use the [issue tracker](https://github.com/leeturner/hugo-progression/issues) to let me know.
 
 If you want to implement new features on the Hugo Progression template, please see the [TODO](https://github.com/leeturner/hugo-progression/blob/main/TODO.md) file for ideas of where to start.
+
+## Licence
+
+MIT. See [LICENSE](LICENSE).
